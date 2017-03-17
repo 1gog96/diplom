@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+	<script type="text/javascript" src="vendors/scrolloverflow.js"></script>
+
+	<script type="text/javascript" src="jquery.fullPage.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,900&amp;subset=cyrillic" rel="stylesheet">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#main').fullpage({
+                // verticalCentered: true,
+                anchors: ['home', 'about', 'works', 'price', 'contact'],
+                menu: 'menu',
+                lockAnchors: true,
+    
+		        navigation: false,
+		        navigationPosition: 'right',
+		        navigationTooltips: ['firstSlide', 'secondSlide'],
+		        showActiveTooltip: false,
+		        slidesNavigation: false,
+		        slidesNavPosition: 'bottom',
+		                // sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE']
+		 //Accessibility
+		        keyboardScrolling: true,
+		        animateAnchor: true,
+		        recordHistory: true,
+
+		        //Design
+		        controlArrows: true,
+		        verticalCentered: true,
+		        fixedElements: '#header, .footer',
+		        responsiveWidth: 0,
+		        responsiveHeight: 0,
+		        responsiveSlides: false,
+
+		        //Custom selectors
+		        sectionSelector: '.section',
+		        slideSelector: '.slide',
+
+		        lazyLoading: true,
+
+		        //events
+		        onLeave: function(index, nextIndex, direction){},
+		        afterLoad: function(anchorLink, index){
+		        	document.querySelectorAll(".pagination__item").forEach(function(el) {
+		        		$(el).removeClass("active");
+		        	});
+		        	$('.pagination__item[data-pagination="' + anchorLink + '"]').addClass("active");
+		        },
+		        afterRender: function(){},
+		        afterResize: function(){},
+		        afterResponsive: function(isResponsive){},
+		        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
+		        	console.log($("pagination__item"));
+		        },
+		        onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
+            });
+
+            $(".pagination__item").click(moveTo);
+		});
+
+        function moveTo(e){
+        	var pagination = $(e.target).attr('data-pagination');
+        	$.fn.fullpage.moveTo(pagination, 1);
+        }
+		
+	</script>
+</head>
+<body>
+	<!--<ul id="menu" class="menu">
+		<li data-menuanchor="about" class="button__nav" class="active">
+			<a href="#about">About us</a>
+		</li>
+
+		<li data-menuanchor="price" class="button__nav">
+			<a href="#price">Price</a>
+		</li>
+		<li data-menuanchor="contact" class="button__nav">
+			<a href="#contact">Contact</a>
+		</li>
+	</ul> -->
+					<div id="menu">
+						<ul>
+							<li class="pagination__item" data-pagination="contact">contact</li>
+							<li class="pagination__item" data-pagination="price">prices</li>
+							<li class="pagination__item" data-pagination="works">works</li>
+							<li class="pagination__item" data-pagination="about">about us</li>
+							<!--<li class="pagination__item" data-pagination="home">theweb</li>-->
+						</ul>
+					</div>
+	<div id="main">
+
+		<section id="home" class="section">
+			<div class="container">
+			<div class="head">
+				<div class="logo"><img src="images/logo.png" alt=""></div>
+				<div class="contact__button-head">
+					<button>Contact us</button>
+				</div>
+			</div>
+				<div class="first__label">
+					<div class="text__menu">Web development<span class="and"> and</span></br> <span class="digital"> digital marketing</span></div>
+				</div>
+				<div class="first__label-mobile">Web development</div>
+					<div class="button__portfolio"> <button> <a href="//theweb.com.ua/portfolio.html"> Open Portfolio</a></button></div>
+					<div class="img__menu"><img src="images/developers-logo.png" alt=""></div>
+				
+			</div>
+		</section>
+		<section id="about" class="section">
+			<div class="about">
+				<div class="container">
+
+					<div class="who-we-are">
+						<div class="who-we-are-top"><p>Who</br>are we</p></div>
+						<div class="bottom-who-we-are">
+							We are creative digital agency from Ukraine.
+							Our team consists of young, efficient and creative-thinking professionals. We work on big challenges in  close collaboration with our clients and strive to find the best solution to answer your needs and requirements.
+						</div>
+						</div>
+						<div class="what-we-do">
+							<div class="what-we-do-right"><p>What</br>we</br> do</p></div>
+							<div class="what-we-do-content">	
+								We design and develop web projects from start to end. Our work combines great design, modern technology and powerful digital marketing strategy. We make it easier for customers to do business with you and elevate you above your competitors.
+ 
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="works" class="section">
+					<div class="container">
+						<div class="portfolio__page">
+							<h2>Works</h2>
+							<div class="portfolio__tile portfolio__tile-left">
+								<div class="portfolio__work">
+									<div class="portfolio__decrirption">STONE FACTORY</div>
+									<div class="portfolio__decrirption-name">marmi.ua</div>
+									<div class="portfolio__description-logo-1"><img src="images/surfaces.png" alt=""></div>
+									<div class="portfolio__decrirption-link"><button>Visit website</button></div>
+
+								</div>
+								
+							</div>
+							<div class="portfolio__tile portfolio__tile-right">
+								<div class="portfolio__work">
+									<div class="portfolio__decrirption">HOTEL IN BORISPOL</div>
+									<div class="portfolio__decrirption-name">marmi.ua</div>
+									<div class="portfolio__description-logo-1"><img src="images/grelive.png" alt=""></div>
+									<div class="portfolio__decrirption-link"><button>Visit website</button></div>
+								</div>
+														
+							</div>
+
+							
+
+						</div>	
+						<div class="more-projects">
+							<h2>More</br>projects</h2>
+						</div>				
+					</div>
+				</section>
+				<section id="price" class="section">
+					<div class="container">
+
+						<div class="price__title">
+							<h2>Prices</h2>
+						</div>
+
+						<div class="price-list">
+							<h2>Web development</h2>
+							<div class="stroka-price">
+								<div class="site-left">
+									<div class="first-line">Landing page</div></br> 
+									<div class="second-line">~<span class="big-price">150$</span></div>
+
+								</div>
+								<div class="site-right">
+									<div class="first-line">Business site</div></br> 
+									<div class="second-line">~<span class="big-price">400$</span></div>						
+								</div>
+							</div>
+							<div class="stroka-price">
+								<div class="site-left">
+									<div class="first-line">Promo site</div></br> 
+									<div class="second-line">~<span class="big-price">300$</span></div>
+								</div>
+								<div class="site-right">
+									<div class="first-line">Internet shop</div></br> 
+									<div class="second-line">~<span class="big-price">700$</span></div>					
+								</div>
+							</div>
+						</div>
+						<div class="price-list">
+							<h2>Digital marketing</h2>
+							<div class="stroka-price">
+								<div class="site-left">
+									<div class="first-line">SEO</div></br> 
+									<div class="second-line">~<span class="big-price">300$</span></div>
+
+								</div>
+								<div class="site-right">
+									<div class="first-line">advertising</div></br> 
+									<div class="second-line">~<span class="big-price">150$</span></div>						
+								</div>
+							</div>
+						</div>
+						<div class="contact__button">
+							<button>Contact us</button>
+						</div>
+					</div>
+				</section>
+				
+				<section id="contact" class="section">
+			
+					
+						<h2>Contact</h2>
+						<div class="contact__nav">
+							позвоните <span class="number">+38 (066) 553-02-17</span><div class="or"> или </div>отправьте <span class="form">online-заявку</span>
+						</div>
+
+
+<div class="nb-demo">
+<strong>online заявка</strong>
+<div class="material-form">
+<div class="form-inner">
+<form>
+
+<div class="group">      
+<input type="text" required>
+<span class="highlight"></span>
+<span class="bar"></span>
+<label>Name</label>
+</div>
+
+<div class="group">      
+<input type="text" required>
+<span class="highlight"></span>
+<span class="bar"></span>
+<label>Email</label>
+</div>
+
+<div class="group">      
+<input type="text" required>
+<span class="highlight"></span>
+<span class="bar"></span>
+<label>Subject</label>
+</div>
+
+
+<div class="group">      
+<textarea type="text" required></textarea>
+<span class="highlight"></span>
+<span class="bar"></span>
+<label>Message</label>
+</div>
+
+<div class="group"> 
+<div class="add">Прикрепить файл</div>     
+<input class="btn" type="submit" class="submit" value="Send Message">
+</div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+					<!--
+						<div class="contact__info">
+							<p>Ukraine, Kiev, street Staronavodnytska</p>
+							<p>+38 (050) 000 00 00</p>
+							<p>theweb@gmail.com</p>
+						</div>
+						<div class="partners">
+							<div class="status">
+								<p>We have status</p>
+							</div>
+							<div class="status-img"> <img src="images/status-1.png" alt="#"> </div>
+						</div>
+					
+					-->
+				</section>
+</div>
+</body>
+</html>
